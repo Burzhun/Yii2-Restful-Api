@@ -41,7 +41,13 @@ class Module extends \yii\base\Module
                     "data"=> []
                 ],JSON_UNESCAPED_UNICODE );                         
             }
-            
+            if($response->statusCode==200) {
+                $response->data = [
+                    'status' => "Success",
+                    'code' => "Успешно",
+                    "data" =>["post"=>$response->data]
+                ];
+            }
 
             
         });
